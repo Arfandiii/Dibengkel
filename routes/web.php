@@ -36,3 +36,21 @@ Route::get('/contact', function () {
         'title' => 'Contact',
     ]);
 });
+
+Route::get('/login', function () {
+    return view('form.login', [
+        'title' => 'login',
+    ]);
+});
+
+Route::get('/register', function () {
+    return view('form.register', [
+        'title' => 'login',
+    ]);
+});
+
+Route::get('/forgot-password', function () {
+    return view('form.forgot-password', [
+        'title' => 'login',
+    ]);
+});
