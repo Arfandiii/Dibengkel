@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/about', function () {
-    return view('about', [
-        'title' => 'About',
-    ]);
-});
+Route::controller(BikeController::class)
+    ->name('bike.')
+    ->group(function () {
+        Route::get('/bike', 'index')->name('index');
+        // Route::get('/pelanggan/create', 'create')->name('pelanggan.create');
+        // Route::post('/pelanggan', 'store')->name('pelanggan.store');
+        // Route::get('/pelanggan/{pelanggan}/edit', 'edit')->name('pelanggan.edit');
+        // Route::put('/pelanggan/{pelanggan}', 'update')->name('pelanggan.update');
+        // Route::delete('/pelanggan/{pelanggan}', 'destroy')->name('pelanggan.destroy');
+    });
 
 Route::get('/service', function () {
     return view('service', [
@@ -39,18 +45,18 @@ Route::get('/contact', function () {
 
 Route::get('/login', function () {
     return view('form.login', [
-        'title' => 'login',
+        'title' => 'Login',
     ]);
 });
 
 Route::get('/register', function () {
     return view('form.register', [
-        'title' => 'login',
+        'title' => 'Register',
     ]);
 });
 
 Route::get('/forgot-password', function () {
     return view('form.forgot-password', [
-        'title' => 'login',
+        'title' => 'Forgot Password',
     ]);
 });

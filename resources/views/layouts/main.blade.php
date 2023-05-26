@@ -7,6 +7,19 @@
     <title>Fixedgear | {{ $title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +36,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link" href="/bike">About</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link" href="/service">Service</a>
@@ -38,7 +51,6 @@
     <div class="container mt-4">
         @yield('container')
     </div>
-    </nav>
     <footer class="py-3 bg-light">
         <div class="container">
             <div class="row">
