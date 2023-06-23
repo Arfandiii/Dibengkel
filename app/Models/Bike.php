@@ -11,5 +11,5 @@ class Bike extends Model
 
     protected $table = 'bikes';
 
-    protected $fillable = ['merek', 'model', 'tahun', 'nomor_seri', 'catatan_lainnya'];
+    protected $guarded = ['id'];
 }

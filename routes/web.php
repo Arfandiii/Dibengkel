@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BikeController;
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,17 @@ Route::controller(BikeController::class)
         // Route::get('/pelanggan/{pelanggan}/edit', 'edit')->name('pelanggan.edit');
         // Route::put('/pelanggan/{pelanggan}', 'update')->name('pelanggan.update');
         // Route::delete('/pelanggan/{pelanggan}', 'destroy')->name('pelanggan.destroy');
-    });
+});
+
+// Route::get('/login', [AuthController::class, 'index']);
+Route::controller(AuthController::class)->group(function(){
+    Route::get('login', 'index');
+    Route::get('register', 'register');
+    Route::get('forgot-password', 'forgot_password');
+    Route::post('login-post', 'post_login')->name('login.post');
+    Route::post('register-post', 'post_register')->name('register.post');
+    Route::post('forgot-password-post', 'forgot_password_post');
+});
 
 Route::get('/service', function () {
     return view('service', [
@@ -49,14 +61,14 @@ Route::get('/login', function () {
     ]);
 });
 
-Route::get('/register', function () {
-    return view('form.register', [
-        'title' => 'Register',
+Route::get('/layout', function () {
+    return view('admin.dashboard', [
+        'title' => 'Dashboard',
     ]);
 });
 
-Route::get('/forgot-password', function () {
-    return view('form.forgot-password', [
-        'title' => 'Forgot Password',
-    ]);
-});
+// Route::get('/forgot-password', function () {
+//     return view('form.forgot-password', [
+//         'title' => 'Forgot Password',
+//     ]);
+// });

@@ -12,13 +12,15 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e273e69b57.js" crossorigin="anonymous"></script>
     <link href="{{ asset('assets/css/admin.min.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
     <div class="container">
-        @yield('container')
+        @yield('content')
     </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('assets/js/admin.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -26,6 +28,7 @@
     <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
 </body>
 
 </html>

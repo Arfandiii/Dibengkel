@@ -1,6 +1,6 @@
-@extends('layouts.main-form')
+@extends('layouts.form-layout')
 
-@section('container')
+@section('content')
     <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-12 col-md-9">
             <div class="card o-hidden border-0 shadow-lg my-5">
@@ -26,10 +26,10 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="/register">Create an Account!</a>
+                                    <a class="small" href="register">Create an Account!</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="/login">Already have an account? Login!</a>
+                                    <a class="small" href="login">Already have an account? Login!</a>
                                 </div>
                             </div>
                         </div>
