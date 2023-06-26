@@ -61,8 +61,13 @@ Route::get('/login', function () {
     ]);
 });
 
-Route::get('/layout', function () {
+Route::get('dashboard', function () {
     return view('admin.dashboard', [
+        'title' => 'Dashboard',
+    ]);
+});
+Route::get('users', function () {
+    return view('admin.user-view', [
         'title' => 'Dashboard',
     ]);
 });
