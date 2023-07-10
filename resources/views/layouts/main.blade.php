@@ -36,7 +36,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" href="/bike">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link" href="/service">Service</a>

@@ -70,7 +70,7 @@ class AuthController extends Controller
             'firstName' => 'required',
             'lastName' => 'required',
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required|string|confirmed', Password::min(6)->letters()->numbers()
+            'password' => 'required|string|confirmed|min:6', Password::min(6)->letters()->numbers()
         ]);
         
         $data = $request->all();

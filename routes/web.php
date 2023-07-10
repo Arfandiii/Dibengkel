@@ -49,6 +49,12 @@ Route::get('/service', function () {
     ]);
 });
 
+Route::get('/about', function () {
+    return view('about', [
+        'title' => 'About',
+    ]);
+});
+
 Route::get('/contact', function () {
     return view('contact', [
         'title' => 'Contact',
@@ -69,6 +75,11 @@ Route::get('dashboard', function () {
 Route::get('users', function () {
     return view('admin.user-view', [
         'title' => 'Dashboard',
+    ]);
+});
+Route::get('profile', function () {
+    return view('admin.profile', [
+        'title' => 'Profile',
     ]);
 });
 
