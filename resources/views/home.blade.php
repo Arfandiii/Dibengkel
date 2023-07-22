@@ -54,11 +54,11 @@
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Brand</label>
+                                    <label for="exampleInputPassword1" class="form-label">Merk</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Model</label>
+                                    <label for="exampleInputPassword1" class="form-label">Tipe</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
@@ -79,7 +79,7 @@
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Brand</label>
+                                    <label for="exampleInputPassword1" class="form-label">Merk</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
