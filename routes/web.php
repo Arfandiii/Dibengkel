@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BikeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +31,11 @@ Route::controller(BikeController::class)
         // Route::get('/pelanggan/{pelanggan}/edit', 'edit')->name('pelanggan.edit');
         // Route::put('/pelanggan/{pelanggan}', 'update')->name('pelanggan.update');
         // Route::delete('/pelanggan/{pelanggan}', 'destroy')->name('pelanggan.destroy');
+});
+
+Route::controller(UserController::class)
+    ->group(function () {
+        Route::get('users', 'getUser')->name('getUser');
 });
 
 // Route::get('/login', [AuthController::class, 'index']);
@@ -73,11 +78,11 @@ Route::get('dashboard', function () {
         'title' => 'Dashboard',
     ]);
 });
-Route::get('users', function () {
-    return view('admin.user-view', [
-        'title' => 'Dashboard',
-    ]);
-});
+// Route::get('users', function () {
+//     return view('admin.user-view', [
+//         'title' => 'Dashboard',
+//     ]);
+// });
 Route::get('profile', function () {
     return view('admin.profile', [
         'title' => 'Profile',
