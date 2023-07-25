@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
@@ -119,16 +120,30 @@ class AuthController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function dashboard()
     {
-        //
+        $user_id = auth()->user()->id;
+        $role = User::where('id', $user_id)->value('role');
+        // dd($role);
+
+        if ($role == 'admin') {
+            return view('admin.dashboard');
+        } else if ($role == 'pengguna') {
+            return view('home');
+        }
+
+        return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function logout()
     {
-        //
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('login');
     }
+
 }

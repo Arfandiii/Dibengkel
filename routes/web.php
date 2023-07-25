@@ -41,6 +41,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('login-post', 'post_login')->name('login.post');
     Route::post('register-post', 'post_register')->name('register.post');
     Route::post('forgot-password-post', 'forgot_password_post');
+    Route::get('logout', 'logout')->name('logout');
 });
 
 Route::get('/service', function () {
