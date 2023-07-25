@@ -9,9 +9,14 @@ class Car extends Model
 {
     use HasFactory;
     
-    protected $table = 'car';
+    protected $table = 'cars';
 
     protected $guarded = [
         'id'
     ];
+
+    public function car_detail()
+    {
+        return $this->hasMany(Car_detail::class);
+    }
 }

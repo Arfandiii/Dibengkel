@@ -54,9 +54,8 @@
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">MENU :</h6>
-                    <a class="collapse-item" href="utilities-color.html">Data Barang</a>
-                    <a class="collapse-item" href="utilities-border.html">Jenis Barang</a>
-                    <a class="collapse-item" href="utilities-animation.html">Merk Barang</a>
+                    <a class="collapse-item" href="cars">Mobil</a>
+                    <a class="collapse-item" href="motorcycles">Motor</a>
                 </div>
             </div>
         </li>
