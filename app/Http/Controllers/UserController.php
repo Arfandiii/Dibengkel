@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
+    public function getUser(User $user)
+    {
+        $dataUser = $user->get();
+
+        return view('admin.user-view', ['title' => 'User View'], compact('dataUser'));
+    }
     /**
      * Display a listing of the resource.
      */
