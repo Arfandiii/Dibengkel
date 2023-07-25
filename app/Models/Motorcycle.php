@@ -9,9 +9,14 @@ class Motorcycle extends Model
 {
     use HasFactory;
     
-    protected $table = 'motorcycle';
+    protected $table = 'motorcycles';
 
     protected $guarded = [
         'id'
     ];
+
+    public function motorcycle_detail()
+    {
+        return $this->hasMany(Motorcycle_detail::class);
+    }
 }

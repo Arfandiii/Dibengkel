@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,20 +23,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::controller(BikeController::class)
-    ->name('bike.')
-    ->group(function () {
-        Route::get('/bike', 'index')->name('index');
-        // Route::get('/pelanggan/create', 'create')->name('pelanggan.create');
-        // Route::post('/pelanggan', 'store')->name('pelanggan.store');
-        // Route::get('/pelanggan/{pelanggan}/edit', 'edit')->name('pelanggan.edit');
-        // Route::put('/pelanggan/{pelanggan}', 'update')->name('pelanggan.update');
-        // Route::delete('/pelanggan/{pelanggan}', 'destroy')->name('pelanggan.destroy');
-});
-
 Route::controller(UserController::class)
     ->group(function () {
         Route::get('users', 'getUser')->name('getUser');
+});
+
+Route::controller(VehicleController::class)
+    ->group(function () {
+        Route::get('cars', 'getCar')->name('getCars');
+        Route::get('motorcycles', 'getMotorcycle')->name('getMotorcycle');
 });
 
 // Route::get('/login', [AuthController::class, 'index']);
