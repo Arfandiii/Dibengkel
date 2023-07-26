@@ -4,10 +4,7 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-light fa-bicycle"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">Fixedgear</div>
+            <div class="sidebar-brand-text mx-3">Dibengkel</div>
         </a>
 
         <!-- Divider -->
@@ -39,7 +36,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">MENU :</h6>
                     <a class="collapse-item" href="users">Users</a>
-                    <a class="collapse-item" href="/">Cards</a>
                 </div>
             </div>
         </li>
