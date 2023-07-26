@@ -26,7 +26,7 @@
                                 <th>no</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>Password</th>
+                                <th>Profile</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -43,16 +43,22 @@
                         <tbody>
                             @foreach ($dataUser as $index => $user)
                                 <tr>
-                                    <td scope="col">{{ ++$index }}</td>
-                                    <td scope="col">{{ $user->first_name }} {{ $user->last_name }}</td>
-                                    <td scope="col">{{ $user->email }}</td>
-                                    <td scope="col">{{ $user->password }}</td>
-                                    <td>
-                                        <div> <button type="button" class="btn btn-warning"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i> Edit</button> | <button type="button"
-                                                class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>
-                                                Hapus</button></div>
-                                    </td>
+                                    <div class="row">
+                                        <td>{{ ++$index }}</td>
+                                        <td class="col-xl-4">{{ $user->first_name }} {{ $user->last_name }}</td>
+                                        <td class="col-xl-2">{{ $user->email }}</td>
+                                        <td class="col-xl-3"><img src="" alt="" class="p-5"></td>
+                                        {{-- {{ $user->password }} --}}
+                                        <td class="col-xl-3">
+                                            <div>
+                                                <button type="button" class="btn btn-warning"><i class="fa fa-pencil"
+                                                        aria-hidden="true"></i> Edit</button> |
+                                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"
+                                                        aria-hidden="true"></i>
+                                                    Hapus</button>
+                                            </div>
+                                        </td>
+                                    </div>
                                 </tr>
                             @endforeach
                         </tbody>
