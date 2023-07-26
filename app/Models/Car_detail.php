@@ -11,7 +11,6 @@ class Car_detail extends Model
     protected $table = 'car_detail';
 
     protected $guarded = [
-        'id'
     ];
 
     public function user()

@@ -12,11 +12,10 @@ class Car extends Model
     protected $table = 'cars';
 
     protected $guarded = [
-        'id'
     ];
 
     public function car_detail()
     {
-        return $this->hasMany(Car_detail::class);
+        return $this->hasMany(Car_detail::class, 'car_id', 'id');
     }
 }

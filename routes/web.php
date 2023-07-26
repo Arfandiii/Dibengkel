@@ -28,9 +28,8 @@ Route::controller(UserController::class)
         Route::get('users', 'getUser')->name('getUser');
 });
 
-Route::controller(VehicleController::class)
-    ->group(function () {
-        Route::get('cars', 'getCar')->name('getCars');
+Route::controller(VehicleController::class)->group(function () {
+        Route::get('cars', 'index');
         Route::get('motorcycles', 'getMotorcycle')->name('getMotorcycle');
 });
 
