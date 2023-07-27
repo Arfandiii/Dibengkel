@@ -4,6 +4,52 @@
 @extends('components.footer')
 
 @section('content')
+    <!-- Car Merek Modal-->
+    <div class="modal fade" id="merekCarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Merek Mobil</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="POST">
+                        <input type="text" class="form-control form-control-user @error('merek') is-invalid @enderror"
+                            id="merek" name="merek" placeholder="Merek" required value="{{ old('merek') }}">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="..">Add Data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car Model Modal-->
+    <div class="modal fade" id="modelCarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
@@ -20,7 +66,8 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-2 p-2">
-                                <button class="btn btn-success"><i class="fa-solid fa-plus mr-1"></i>Tambah Merek</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#merekCarModal"><i
+                                        class="fa-solid fa-plus mr-1"></i>Tambah Merek</button>
                             </div>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -72,7 +119,8 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-2 p-2">
-                                <button class="btn btn-success"><i class="fa-solid fa-plus mr-1"></i>Tambah Model</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#modelCarModal"><i
+                                        class="fa-solid fa-plus mr-1"></i>Tambah Model</button>
                             </div>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
