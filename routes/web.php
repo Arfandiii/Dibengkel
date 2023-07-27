@@ -33,6 +33,7 @@ Route::controller(VehicleController::class)
     ->group(function () {
         Route::get('cars', 'getCar')->name('getCar');
         Route::get('motorcycles', 'getMotorcycle')->name('getMotorcycle');
+        Route::post('brand-post', 'storeBrandCar')->name('brand.post');
 });
 
 Route::controller(AuthController::class)

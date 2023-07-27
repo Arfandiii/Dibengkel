@@ -11,19 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('car_detail', function (Blueprint $table) {
+        Schema::create('motorcycle_models', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('car_model_id');
+            $table->foreignId('motorcycle_brand_id');
+            $table->string('model');
             $table->timestamps();
         });
     }
-
+  
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('car_detail');
+        Schema::dropIfExists('motorcycle_models');
     }
 };

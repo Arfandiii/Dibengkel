@@ -13,8 +13,8 @@ return new class extends Migration
     {   
         Schema::create('motorcycle_detail', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('motorcycle_id');
-            $table->string('model');
+            $table->foreignId('user_id');
+            $table->foreignId('motorcycle_model_id');
             $table->timestamps();
         });
     }
