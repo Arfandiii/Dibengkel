@@ -5,21 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Motorcycle_detail extends Model
+class Motorcycle_brand extends Model
 {
     use HasFactory;
-    protected $table = 'motorcycle_detail';
+    
+    protected $table = 'motorcycle_brands';
 
     protected $guarded = [
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-    
     public function motorcycle_model()
     {
-        return $this->belongsTo(Motorcycle_model::class);
+        return $this->hasMany(motorcycle_model::class, 'motorcycle_brand_id', 'id');
     }
 }
