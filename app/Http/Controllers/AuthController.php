@@ -15,7 +15,7 @@ class AuthController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function login()
     {
         return view('form.login', [
             'title' => 'Login',
@@ -28,7 +28,7 @@ class AuthController extends Controller
     public function register()
     {
         return view('form.register', [
-            'title' => 'Register',
+            'title' => 'Register'
         ]);
     }
 
@@ -38,7 +38,7 @@ class AuthController extends Controller
     public function forgot_password()
     {
         return view('form.forgot-password', [
-            'title' => 'Forgot Password',
+            'title' => 'Forgot Password'
         ]);
     }
 
@@ -56,7 +56,7 @@ class AuthController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/dashboard-admin');
         }
 
         return back()->with('loginError', 'Login failed!');
@@ -140,10 +140,12 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        Session::flush();
         Auth::logout();
 
-        return Redirect('login');
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return Redirect('/login');
     }
 
 }
