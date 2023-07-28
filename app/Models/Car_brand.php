@@ -14,9 +14,9 @@ class Car_brand extends Model
     protected $guarded = [
     ];
 
-    public function car_model()
+    public function car_detail()
     {
-        return $this->hasMany(Car_model::class, 'car_brand_id', 'id');
+        return $this->hasMany(Car_detail::class, 'car_brand_id', 'id');
     }
 
 }

@@ -14,8 +14,8 @@ class Motorcycle_brand extends Model
     protected $guarded = [
     ];
 
-    public function motorcycle_model()
+    public function motorcycle_detail()
     {
-        return $this->hasMany(motorcycle_model::class, 'motorcycle_brand_id', 'id');
+        return $this->hasMany(Motorcycle_detail::class, 'motorcycle_brand_id', 'id');
     }
 }
