@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Car_detail extends Model
 {
     use HasFactory;
-    protected $table = 'car_detail';
+    protected $table = 'car_details';
 
     protected $guarded = [
     ];
@@ -18,8 +18,8 @@ class Car_detail extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function car_model()
+    public function car_brand()
     {
-        return $this->belongsTo(Car_model::class);
+        return $this->belongsTo(Car_brand::class);
     }
 }

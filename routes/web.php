@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Name;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +31,13 @@ Route::controller(UserController::class)
         Route::get('users', 'getUser')->name('getUser');
 });
 
-Route::controller(VehicleController::class)
-    ->group(function () {
-        Route::get('cars', 'getCar')->name('getCar');
-        Route::get('motorcycles', 'getMotorcycle')->name('getMotorcycle');
-        Route::post('brand-post', 'storeBrandCar')->name('brand.post');
-});
+// Route::controller(VehicleController::class)
+//     ->group(function () {
+//         Route::get('cars', 'getCar')->name('getCar')->middleware('auth');
+//         Route::get('motorcycles', 'getMotorcycle')->name('getMotorcycle')->middleware('auth');
+//         Route::post('brand-post', 'storeBrandCar')->name('brand.post')->middleware('auth');
+//         Route::get('brand-delete/{id}', 'destroyBrand')->name('deleteBrand')->middleware('auth');
+// });
 
 Route::controller(AuthController::class)
     ->group(function(){
@@ -54,3 +57,7 @@ Route::controller(DashboardController::class)
         // Route::get('dashboard-user', 'index');
 
 });
+
+
+
+Route::resource('cars', CarController::class)->middleware('auth');

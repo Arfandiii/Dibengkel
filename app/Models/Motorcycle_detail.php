@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Motorcycle_detail extends Model
 {
     use HasFactory;
-    protected $table = 'motorcycle_detail';
+    protected $table = 'motorcycle_details';
 
     protected $guarded = [
     ];
@@ -18,8 +18,8 @@ class Motorcycle_detail extends Model
         return $this->belongsTo(User::class);
     }
     
-    public function motorcycle_model()
+    public function motorcycle_brand()
     {
-        return $this->belongsTo(Motorcycle_model::class);
+        return $this->belongsTo(Motorcycle_brand::class);
     }
 }

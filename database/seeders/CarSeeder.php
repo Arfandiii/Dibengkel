@@ -28,32 +28,20 @@ class CarSeeder extends Seeder
             "brand" => "Ferari"
         ]);
         
-        Car_model::create([
-            'car_brand_id' => '1',
-            "model" => "sport"
-        ]);
-        
-        Car_model::create([
-            'car_brand_id' => '2',
-            "model" => "jeep"
-        ]);
-        
-        Car_model::create([
-            'car_brand_id' => '3',
-            "model" => "blabla"
-        ]);
-        
         Car_detail::create([
             'user_id' => '3',
-            "car_model_id" => "1"
+            'car_brand_id' => '1',
+            "model" => "Sport"
         ]);
         Car_detail::create([
             'user_id' => '4',
-            "car_model_id" => "2"
+            'car_brand_id' => '2',
+            "model" => "jeep"
         ]);
         Car_detail::create([
             'user_id' => '5',
-            "car_model_id" => "3"
+            'car_brand_id' => '3',
+            "model" => "sport"
         ]);
     }
 }
