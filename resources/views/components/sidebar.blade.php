@@ -45,7 +45,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-solid fa-clipboard-list"></i>
-                <span>Vehicle</span>
+                <span>Kendaraan</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -61,13 +61,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Data Transaksi</span>
+                <span>Data Servis</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Menu :</h6>
-                    <a class="collapse-item" href="login.html">Transaksi Barang Masuk</a>
-                    <a class="collapse-item" href="register.html">Transaksi Barang Keluar</a>
+                    <a class="collapse-item" href="car-services">Servis Motor</a>
+                    <a class="collapse-item" href="motorcycle-service">Servis Mobil</a>
                 </div>
             </div>
         </li>

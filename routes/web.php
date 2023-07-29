@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MotorcycleController;
+use App\Http\Controllers\ViewController;
+use App\Models\Car_brand;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Name;
 
@@ -21,24 +23,11 @@ use PhpParser\Node\Name;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'Home',
-    ]);
+Route::controller(ViewController::class)->group(function(){
+    Route::get('/', 'index');
+    Route::post('service/motorcycle-create', 'storeMotorcycle')->name('create.motorcycleService')->middleware('auth');
+    Route::post('service/car-create', 'storeCar')->name('create.carService')->middleware('auth');
 });
-
-// Route::controller(UserController::class)
-//     ->group(function () {
-//         Route::get('users', 'getUser')->name('getUser');
-// });
-
-// Route::controller(VehicleController::class)
-//     ->group(function () {
-//         Route::get('cars', 'getCar')->name('getCar')->middleware('auth');
-//         Route::get('motorcycles', 'getMotorcycle')->name('getMotorcycle')->middleware('auth');
-//         Route::post('brand-post', 'storeBrandCar')->name('brand.post')->middleware('auth');
-//         Route::get('brand-delete/{id}', 'destroyBrand')->name('deleteBrand')->middleware('auth');
-// });
 
 Route::controller(AuthController::class)
     ->group(function(){

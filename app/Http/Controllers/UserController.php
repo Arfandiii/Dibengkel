@@ -14,7 +14,7 @@ class UserController extends Controller
     {
 
         $dataUser = User::where('role', 'pengguna')->get();
-        return view('admin.user-view', ['title' => 'User View'], compact('dataUser'));
+        return view('admin.user.user-view', ['title' => 'User View'], compact('dataUser'));
     }
 
     /**

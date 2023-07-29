@@ -24,11 +24,9 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        
         $validateData = $request->validate([
             'brand' => 'unique:car_brands'
-        ]);
-
+        ]); 
         Car_brand::create($validateData);
         return back()->with('success', 'Data berhasil ditambahkan !');
     }

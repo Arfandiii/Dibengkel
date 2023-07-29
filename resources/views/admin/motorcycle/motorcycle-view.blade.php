@@ -32,7 +32,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Cars</h1>
+        <h1 class="h3 mb-2 text-gray-800">Motor</h1>
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -140,11 +140,13 @@
                                 {{-- tabel mobil --}}
                                 <tr>
                                     <td scope="col" class="">{{ $loop->iteration }}</td>
-                                    <td scope="col" class="col-xl-9">
+                                    <td scope="col" class="col-xl-10">
                                         {{ $motorcycleBrand->brand }}
                                     </td>
-                                    <td scope="col" class="col-xl-3">
-                                        <div>
+                                    <td scope="col" class="col-xl-2" style="height: 100px;">
+                                        <div class="d-flex
+                                            justify-content-around align-items-center"
+                                            style="height: 100px;">
                                             <button class="btn btn-warning mb-2" data-toggle="modal"
                                                 data-target="#editModal{{ $motorcycleBrand->id }}"><i
                                                     class="fa fa-pencil" aria-hidden="true"></i> Edit</button> |

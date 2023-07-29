@@ -44,51 +44,114 @@
                     </li>
                 </ul>
                 <div class="tab-content mt-5" id="myTabContent">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <div class="tab-pane fade show active" id="mobil-tab-pane" role="tabpanel" aria-labelledby="mobil-tab"
                         tabindex="0">
                         <div class="bg-light p-5 rounded mt-0">
-                            <form>
+                            <form action="{{ route('create.carService') }}" method="POST">
+                                @csrf
+                                @auth
+                                    <input type="hidden" name="user_id" id="inputNameUser" value="{{ auth()->user()->id }}">
+                                @endauth
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Nomor Polisi</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
+                                    <label for="inputNomorPolisi" class="form-label">Nomor Polisi</label>
+                                    <input type="text" class="form-control @error('nomor_polisi') is-invalid @enderror"
+                                        id="inputNomorPolisi" name="nomor_polisi" aria-describedby="emailHelp">
+                                    @error('nomor_polisi')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Merk</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="inputBrand" class="form-label">Brand</label>
+                                    <select name="car_brand_id" class="form-select" id="inputBrand"
+                                        aria-label="Default select example">
+                                        <option selected>-- Pilih Brand --</option>
+                                        @foreach ($carBrands as $carBrand)
+                                            <option value="{{ $carBrand->id }}">{{ $carBrand->brand }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Tipe</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="inputModel" class="form-label">Model</label>
+                                    <input type="text" class="form-control @error('model') is-invalid @enderror"
+                                        id="inputModel" name="model">
+                                    @error('model')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Servis</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="inputService" class="form-label">Servis</label>
+                                    <input type="text" class="form-control @error('service') is-invalid @enderror"
+                                        id="inputService" name="service">
+                                    @error('service')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
+
+                    {{-- form service motor --}}
                     <div class="tab-pane fade" id="motor-tab-pane" role="tabpanel" aria-labelledby="motor-tab"
                         tabindex="0">
                         <div class="bg-light p-5 rounded mt-0">
-                            <form>
+                            <form method="POST" action="{{ route('create.motorcycleService') }}">
+                                @csrf
+                                <input type="hidden" name="user_id" id="inputNameUser">
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Nomor Polisi</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
+                                    <label for="inputNomorPolisi" class="form-label">Nomor Polisi</label>
+                                    <input type="text" class="form-control @error('nomor_polisi') is-invalid @enderror"
+                                        id="inputNomorPolisi" name="nomor_polisi" aria-describedby="emailHelp">
+                                    @error('nomor_polisi')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Merk</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="inputBrand" class="form-label">Brand</label>
+                                    <select name="brand_id" class="form-select" id="inputBrand"
+                                        aria-label="Default select example">
+                                        <option selected>-- Pilih Brand --</option>
+                                        @foreach ($motorcycleBrands as $motorcycleBrand)
+                                            <option value="{{ $motorcycleBrand->id }}">{{ $motorcycleBrand->brand }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Tipe</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="inputModel" class="form-label">Model</label>
+                                    <input type="text" class="form-control  @error('model') is-invalid @enderror"
+                                        id="inputModel" name="model">
+                                    @error('model')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Servis</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="inputService" class="form-label">Servis</label>
+                                    <input type="text" class="form-control @error('service') is-invalid @enderror"
+                                        id="inputService" name="service">
+                                    @error('service')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
@@ -98,116 +161,4 @@
             </div>
         </div>
     </main>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1>Welcome to Your Website</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae lobortis lorem. Sed ac mi sit
-                        amet ex bibendum commodo. Fusce sit amet malesuada ipsum.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x500" alt="Hero Image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section mt-5">
-        <div class="container">
-            <div class="row my-5">
-                <div class="col-md-12 text-center">
-                    <h2>Our Services</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/500x300" alt="Service Image" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Service 1</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis,
-                                molestiae.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/500x300" alt="Service Image" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Service 2</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
-                                lobortis lorem.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/500x300" alt="Service Image" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Service 3</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
-                                lobortis lorem.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section my-5">
-        <div class="container">
-            <div class="row mt-5 my-4">
-                <div class="col-md-12 text-center">
-                    <h2>Testimonials</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
-                                lobortis lorem. Sed ac mi sit amet ex bibendum commodo."</p>
-                        </div>
-                        <div class="card-footer">
-                            <h5 class="card-title">John Doe</h5>
-                            <p class="card-text">CEO, Company Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
-                                lobortis lorem. Sed ac mi sit amet ex bibendum commodo."</p>
-                        </div>
-                        <div class="card-footer">
-                            <h5 class="card-title">Jane Doe</h5>
-                            <p class="card-text">Marketing Manager, Company Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae
-                                lobortis lorem. Sed ac mi sit amet ex bibendum commodo."</p>
-                        </div>
-                        <div class="card-footer">
-                            <h5 class="card-title">Joe Doe</h5>
-                            <p class="card-text">Designer, Company Inc.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
