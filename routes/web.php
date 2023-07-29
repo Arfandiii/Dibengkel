@@ -6,6 +6,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MotorcycleController;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Name;
 
@@ -26,10 +27,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::controller(UserController::class)
-    ->group(function () {
-        Route::get('users', 'getUser')->name('getUser');
-});
+// Route::controller(UserController::class)
+//     ->group(function () {
+//         Route::get('users', 'getUser')->name('getUser');
+// });
 
 // Route::controller(VehicleController::class)
 //     ->group(function () {
@@ -61,3 +62,5 @@ Route::controller(DashboardController::class)
 
 
 Route::resource('cars', CarController::class)->middleware('auth');
+Route::resource('motorcycles', MotorcycleController::class)->middleware('auth');
+Route::resource('users', UserController::class)->middleware('auth');

@@ -1,28 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Motorcycle_brand;
+use App\Models\Motorcycle_detail;
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class UserController extends Controller
+class MotorcycleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $motorcycleDetails = Motorcycle_detail::with('motorcycle_brand')->get();
+        $motorcycleBrands = Motorcycle_brand::with('motorcycle_detail')->get();
 
-        $dataUser = User::where('role', 'pengguna')->get();
-        return view('admin.user-view', ['title' => 'User View'], compact('dataUser'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('admin.motorcycle.motorcycle-view', ['title' => 'Motorcycle'], compact('motorcycleDetails', 'motorcycleBrands'));
     }
 
     /**
@@ -30,23 +23,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validateData = $request->validate([
+            'brand' => 'unique:motorcycle_brands'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        Motorcycle_brand::create($validateData);
+        return back()->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**
@@ -54,7 +36,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = User::find($id);
+        $data = Motorcycle_brand::find($id);
         $data->update($request->all());
         return back()->with('success', 'Data berhasil diubah !');
     }
@@ -64,7 +46,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $data = User::find($id);
+        $data = Motorcycle_brand::find($id);
         $data->delete();
         return back()->with('success', 'Data berhasil dihapus !');
     }
