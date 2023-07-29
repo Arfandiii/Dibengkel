@@ -18,12 +18,12 @@
         @enderror
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Users</h1>
+        <h1 class="h3 mb-2 text-gray-800">Pengguna</h1>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Users</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Tabel Pengguna</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -123,13 +123,18 @@
                                         <td class="col-xl-1"><img src="" alt=""
                                                 class="p-5 bg-light rounded">
                                         </td>
-                                        <td class="col-xl-3">{{ $user->email }}</td>
+                                        <td class="col-xl-4">{{ $user->email }}</td>
                                         {{-- {{ $user->password }} --}}
-                                        <td class="col-xl-2">
-                                            <div>
-                                                <button class="btn btn-sm btn-warning mb-2" data-toggle="modal"
-                                                    data-target="#editModal{{ $user->id }}"><i class="fa fa-pencil"
-                                                        aria-hidden="true"></i> Edit</button> |
+                                        <td class="col-xl-2" style="height: 100px;">
+                                            <div class="d-flex
+                                            justify-content-between align-items-center"
+                                                style="height: 100px;">
+                                                <button
+                                                    class="btn
+                                                btn-sm btn-warning mb-2"
+                                                    data-toggle="modal" data-target="#editModal{{ $user->id }}"><i
+                                                        class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                                                <span> | </span>
                                                 <button class="btn btn-sm btn-danger mb-2" data-toggle="modal"
                                                     data-target="#deleteModal{{ $user->id }}">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>

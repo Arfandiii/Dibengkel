@@ -145,7 +145,7 @@ class AuthController extends Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
 
-        return Redirect('/login');
+        return Redirect('/');
     }
 
 }
