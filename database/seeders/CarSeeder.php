@@ -15,19 +15,20 @@ class CarSeeder extends Seeder
      */
     public function run(): void
     {
-        
+        // data nama Brand
         Car_brand::create([
-            "brand" => "Daihatsu"
+            "brand" => "Daihatsu" // data 1
         ]);
         
         Car_brand::create([
-            "brand" => "Ducati"
+            "brand" => "Ducati" // data 2
         ]);
         
         Car_brand::create([
-            "brand" => "Ferari"
+            "brand" => "Ferari" // data 3
         ]);
-        
+
+        // data detail servis        
         Car_detail::create([
             'user_id' => '3',
             'car_brand_id' => '1',
