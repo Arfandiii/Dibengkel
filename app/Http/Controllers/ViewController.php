@@ -27,7 +27,7 @@ class ViewController extends Controller
         ]);
 
         Motorcycle_detail::create($validateData);
-        return back()->with('success', 'Data berhasil ditambahkan !');
+        return back()->with('success', 'Service berhasil ditambahkan !');
     }
 
 
@@ -41,6 +41,6 @@ class ViewController extends Controller
             'service' => 'required'
         ]);
         Car_detail::create($validateData);
-        return back()->with('success', 'Data berhasil ditambahkan !');
+        return back()->with('success', 'Service berhasil ditambahkan !');
     }
 }
