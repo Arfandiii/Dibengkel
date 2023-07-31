@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 use App\Models\User;
 
 class UserController extends Controller
@@ -22,7 +23,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create-user', [
+            'title' => 'User Create'
+        ]);
     }
 
     /**
@@ -30,7 +33,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'first_name' => 'required|max:225',
+            'last_name' => 'required|max:225',
+            'email' => 'required|email|unique:users',
+            'nomor_telepon' => 'required',
+            'password' => 'required|max:8',Password::min(6)->letters()->numbers()
+        ]);
+        
+        User::create($validatedData);
+        return redirect('users')->with('success', 'Data berhasil diubah !');
     }
 
     /**
@@ -44,19 +57,40 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+         return view('admin.user.edit-user', [
+            'title' => 'Edit User',
+            'user' => $user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $data = User::find($id);
-        $data->update($request->all());
-        return back()->with('success', 'Data berhasil diubah !');
+        $rules = [
+            'first_name' => 'required|max:225',
+            'last_name' => 'required|max:225',
+            'image' => 'image|file|max:10000'
+            // 'nomor_telepon' => 'required|unique:email'
+        ];
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('user-images') ;
+        }
+        
+        if ($request->email != $user->email) {
+            $rules['email'] = 'required|unique:users';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        $validatedData['id'] = $user->id;
+        User::where('id', $user->id)->update($validatedData);
+
+        return redirect('users')->with('success', 'Data berhasil diubah !');
     }
 
     /**

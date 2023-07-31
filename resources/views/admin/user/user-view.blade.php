@@ -28,7 +28,8 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="mb-2 p-2">
-                        <button class="btn btn-success"><i class="fa-solid fa-plus mr-1"></i>Add User</button>
+                        <a href="/users/create" class="btn btn-success"><i class="fa-solid fa-plus mr-1"></i>Tambah
+                            Pengguna</a>
                     </div>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -36,8 +37,8 @@
                                 <th>no</th>
                                 <th>Nama</th>
                                 <th>Email</th>
+                                <th>Nomor Telepon</th>
                                 <th>Profile</th>
-                                <th>Transaksi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -120,20 +121,25 @@
                                         <td class="col-xl-0">{{ $loop->iteration }}</td>
                                         <td class="col-xl-2">{{ $user->first_name }} {{ $user->last_name }}</td>
                                         <td class="col-xl-3">{{ $user->email }}</td>
-                                        <td class="col-xl-1"><img src="" alt=""
-                                                class="p-5 bg-light rounded">
+                                        <td class="col-xl-4">{{ $user->nomor_telepon }}</td>
+                                        <td class="col-xl-1">
+                                            @if ($user->image)
+                                                <img src="{{ asset('storage/' . $user->image) }}"
+                                                    alt="{{ $user->first_name }}" class=" rounded">
+                                            @else
+                                                <img src="{{ asset('assets/img/user.png') }}"
+                                                    alt="{{ $user->first_name }}" class=" rounded">
+                                            @endif
                                         </td>
-                                        <td class="col-xl-4">{{ $user->email }}</td>
                                         {{-- {{ $user->password }} --}}
-                                        <td class="col-xl-2" style="height: 100px;">
+                                        <td class="col-xl-3" style="height: 100px;">
                                             <div class="d-flex
                                             justify-content-between align-items-center"
                                                 style="height: 100px;">
-                                                <button
-                                                    class="btn
+                                                <a class="btn
                                                 btn-sm btn-warning mb-2"
-                                                    data-toggle="modal" data-target="#editModal{{ $user->id }}"><i
-                                                        class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+                                                    href="/users/{{ $user->id }}/edit"><i class="fa fa-pencil"
+                                                        aria-hidden="true"></i> Edit</a>
                                                 <span> | </span>
                                                 <button class="btn btn-sm btn-danger mb-2" data-toggle="modal"
                                                     data-target="#deleteModal{{ $user->id }}">

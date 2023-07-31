@@ -16,7 +16,27 @@
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <style>
+        div.btn-upload {
+            position: absolute;
+        }
 
+        input.file-input {
+            width: 40px;
+            opacity: 0.001;
+            cursor: pointer;
+        }
+
+        .file-input-wrapper {
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .btn-container:hover {
+            cursor: pointer;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -107,6 +127,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
     </script>
+
+    <script>
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
+
 </body>
 
 </html>
