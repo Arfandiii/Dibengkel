@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MotorcycleController;
 use App\Http\Controllers\ViewController;
@@ -53,3 +54,4 @@ Route::controller(DashboardController::class)
 Route::resource('cars', CarController::class)->middleware('auth');
 Route::resource('motorcycles', MotorcycleController::class)->middleware('auth');
 Route::resource('users', UserController::class)->middleware('auth');
+Route::resource('car-services', CarServiceController::class)->middleware('auth');

@@ -13,7 +13,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
         $dataUser = User::where('role', 'pengguna')->get();
         return view('admin.user.user-view', ['title' => 'User View'], compact('dataUser'));
     }
@@ -43,7 +42,7 @@ class UserController extends Controller
         ]);
         
         User::create($validatedData);
-        return redirect('users')->with('success', 'Data berhasil diubah !');
+        return redirect('users')->with('success', 'Data berhasil ditambah !');
     }
 
     /**
