@@ -66,7 +66,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Menu :</h6>
-                    <a class="collapse-item" href="/car-services">Servis Motor</a>
+                    <a class="collapse-item" href="/car-services">Servis Mobil</a>
                     <a class="collapse-item" href="/motorcycle-service">Servis Mobil</a>
                 </div>
             </div>
